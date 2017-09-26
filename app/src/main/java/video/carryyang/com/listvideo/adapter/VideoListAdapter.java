@@ -1,6 +1,7 @@
 package video.carryyang.com.listvideo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import video.carryyang.com.listvideo.DetailActivity;
 import video.carryyang.com.listvideo.MainApplication;
 import video.carryyang.com.listvideo.R;
 import video.carryyang.com.listvideo.videoview.MyTextureView;
@@ -41,13 +43,15 @@ public class VideoListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final VideoViewHolder mHolder = (VideoViewHolder) holder;
         mHolder.cover.setImageURI(coverList.get(position));
+        mHolder.cover.setVisibility(View.VISIBLE);
         mHolder.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mHolder.tv.setmMediaPlayer(MainApplication.getInstance().getMediaPlayer());
+                mHolder.tv.setMediaPlayer(MainApplication.getInstance().getMediaPlayer());
                 mHolder.tv.setPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
+                        mHolder.cover.setVisibility(View.GONE);
                         mHolder.tv.startPlay();
                     }
                 });
@@ -58,6 +62,16 @@ public class VideoListAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
                 mHolder.tv.pausePlay();
+            }
+        });
+
+        mHolder.goDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainApplication.getInstance().getMediaPlayer().pause();
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("path", urlList.get(position));
+                context.startActivity(intent);
             }
         });
 
@@ -101,6 +115,9 @@ public class VideoListAdapter extends RecyclerView.Adapter {
 
         @BindView(R.id.tv)
         MyTextureView tv;
+
+        @BindView(R.id.go_detail)
+        TextView goDetail;
 
         public VideoViewHolder(View itemView) {
             super(itemView);

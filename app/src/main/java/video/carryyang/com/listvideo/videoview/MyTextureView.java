@@ -168,7 +168,7 @@ public class MyTextureView extends TextureView implements TextureView.SurfaceTex
         super.setOnClickListener(l);
     }
 
-    public void setmMediaPlayer(MediaPlayer mMediaPlayer) {
+    public void setMediaPlayer(MediaPlayer mMediaPlayer) {
         this.mMediaPlayer = mMediaPlayer;
         mMediaPlayer.setSurface(new Surface(this.getSurfaceTexture()));
     }

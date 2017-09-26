@@ -4,15 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/cover"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp" />
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="230dp" />
 
-    <video.carryyang.com.listvideo.videoview.MyTextureView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="220dp" />
+        <video.carryyang.com.listvideo.videoview.MyTextureView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="230dp" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/play"
@@ -25,5 +30,11 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="stop-------->>>"/>
+
+    <TextView
+        android:id="@+id/go_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="go---detail----->>>"/>
 
 </LinearLayout>
