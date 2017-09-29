@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/cover"
-            android:layout_width="match_parent"
-            android:layout_height="230dp" />
 
         <video.carryyang.com.listvideo.videoview.MyTextureView
             android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cover"
             android:layout_width="match_parent"
             android:layout_height="230dp" />
 
@@ -23,18 +25,18 @@
         android:id="@+id/play"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:text="play-------->>>"/>
+        android:text="play-------->>>" />
 
     <TextView
         android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:text="stop-------->>>"/>
+        android:text="stop-------->>>" />
 
     <TextView
         android:id="@+id/go_detail"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:text="go---detail----->>>"/>
+        android:text="go---detail----->>>" />
 
 </LinearLayout>

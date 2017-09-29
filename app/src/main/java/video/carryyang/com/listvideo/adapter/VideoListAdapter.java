@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import video.carryyang.com.listvideo.DetailActivity;
 import video.carryyang.com.listvideo.MainApplication;
 import video.carryyang.com.listvideo.R;
+import video.carryyang.com.listvideo.utils.AnimationUtils;
 import video.carryyang.com.listvideo.videoview.MyTextureView;
 
 /**
@@ -51,11 +52,11 @@ public class VideoListAdapter extends RecyclerView.Adapter {
                 mHolder.tv.setPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
-                        mHolder.cover.setVisibility(View.GONE);
                         mHolder.tv.startPlay();
                     }
                 });
                 mHolder.tv.setUrl(urlList.get(position)) ;
+                AnimationUtils.fadeOut(mHolder.cover);
             }
         });
         mHolder.stop.setOnClickListener(new View.OnClickListener() {
